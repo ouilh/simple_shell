@@ -1,102 +1,105 @@
 #include "shell.h"
 
 /**
- * _putchar - writes the character m to stdout
- * @m: The character to print
+ * write_character - Writes the character to stdout.
+ * @character: The character to print.
  *
- * Return: 1 On success.
- * -1 On error and errno is set appropriately.
+ * Return: 1 on success, -1 on error, and errno is set appropriately.
  */
-int _putchar(char m)
+int write_character(char character)
 {
-	return (write(1, &m, 1));
+    return write(1, &character, 1);
 }
 
 /**
-  * _strcmp - a function to compare 2 strings
-  * @str1: first string
-  * @str2: second string
-  *
-  * Return: int
-  */
-int _strcmp(const char *str1, char *str2)
+ * compare_strings - Compares two strings.
+ * @string1: First string.
+ * @string2: Second string.
+ *
+ * Return: 0 if the strings are equal, a positive or negative value otherwise.
+ */
+int compare_strings(const char *string1, const char *string2)
 {
-	int cmp = 0;
+    int comparison = 0;
 
-	while (*str1 && *str2)
-	{
-		if (*str1 == *str2)
-		{
-			str1++;
-			str2++;
-		}
-		else
-			break;
-	}
-	cmp = *str1 - *str2;
-	return (cmp);
-}
-/**
-  *_strcpy - copies the string pointed
-  *to by sourstr, including the terminating null byte
-  *to the buffer pointed to by dest
-  * @destr: points to buffer
-  * @sourstr: points to string
-  *
-  * Return: pointer
-  */
-char *_strcpy(char *destr, char *sourstr)
-{
-	char *ret = destr;
-
-	while (*sourstr)
-	{
-		*destr = *sourstr;
-		destr++;
-		sourstr++;
-	}
-	*destr = '\0';
-	return (ret);
+    while (*string1 && *string2)
+    {
+        if (*string1 == *string2)
+        {
+            string1++;
+            string2++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    comparison = *string1 - *string2;
+    return comparison;
 }
 
 /**
-  * _strlen - it Counts length of string
-  * @str: The string to counts the length
-  *
-  * Return: length of string
-  */
-int _strlen(const char *str)
+ * copy_string - Copies the source string, including the null byte, to the destination buffer.
+ * @destination: Pointer to the destination buffer.
+ * @source: Pointer to the source string.
+ *
+ * Return: Pointer to the destination buffer.
+ */
+char *copy_string(char *destination, const char *source)
 {
-	int leng = 0;
+    char *result = destination;
 
-	while (str[leng])
-		leng++;
-
-	return (leng);
+    while (*source)
+    {
+        *destination = *source;
+        destination++;
+        source++;
+    }
+    *destination = '\0';
+    return result;
 }
+
 /**
-  * _strcat - Concatenates two strings
-  * @destr: destination string
-  * @sourstr: source string
-  *
-  * Return: A pointer to result string destr
-  */
-
-char *_strcat(char *destr, char *sourstr)
+ * calculate_string_length - Counts the length of a string.
+ * @string: The string to calculate the length of.
+ *
+ * Return: Length of the string.
+ */
+size_t calculate_string_length(const char *string)
 {
-	int destlen, i;
+    size_t length = 0;
 
-	destlen = 0;
+    while (string[length])
+    {
+        length++;
+    }
+    return length;
+}
 
-	while (destr[destlen])
-		destlen++;
+/**
+ * concatenate_strings - Concatenates two strings.
+ * @destination: Destination string.
+ * @source: Source string.
+ *
+ * Return: A pointer to the result string (destination).
+ */
+char *concatenate_strings(char *destination, const char *source)
+{
+    int destination_length = 0;
 
-	for (i = 0; sourstr[i] != '\0'; i++)
-	{
-		destr[destlen] = sourstr[i];
-		destlen++;
-	}
+    while (destination[destination_length])
+    {
+        destination_length++;
+    }
 
-	destr[destlen] = '\0';
-	return (destr);
+    int i;
+
+    for (i = 0; source[i] != '\0'; i++)
+    {
+        destination[destination_length] = source[i];
+        destination_length++;
+    }
+
+    destination[destination_length] = '\0';
+    return destination;
 }
