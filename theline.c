@@ -1,60 +1,60 @@
 #include "shell.h"
 
 /**
- * split_theline - Split the input line into tokens.
- * @theline: The input line.
+ * split_input_line - Split the input line into tokens.
+ * @input_line: The input line.
  *
  * Return: An array of tokens.
  */
-char **split_theline(char *theline)
+char **split_input_line(char *input_line)
 {
-	int i = 0;
-	const char *dlmtr;
-	char **splits;
-	char *split;
+    int token_count = 0;
+    const char *delimiters;
+    char **tokens;
+    char *token;
 
-	dlmtr = " \n\t";
-	splits = malloc(1024 * sizeof(char *));
-	split = _strtok(theline, dlmtr);
+    delimiters = " \n\t";
+    tokens = malloc(1024 * sizeof(char *));
+    token = custom_strtok(input_line, delimiters);
 
-	if (!splits)
-	{
-		perror("allocation error\n");
-		exit(1);
-	}
+    if (!tokens)
+    {
+        perror("Allocation error\n");
+        exit(1);
+    }
 
-	while (split != NULL)
-	{
-		splits[i] = split;
-		split = _strtok(NULL, dlmtr);
-		i++;
-	}
-	splits[i] = NULL;
+    while (token != NULL)
+    {
+        tokens[token_count] = token;
+        token = custom_strtok(NULL, delimiters);
+        token_count++;
+    }
+    tokens[token_count] = NULL;
 
-	return (splits);
+    return tokens;
 }
 
 /**
- * read_theline - Read a line of input from the user.
+ * read_input_line - Read a line of input from the user.
  *
  * Return: The input line.
  */
-char *read_theline(void)
+char *read_input_line(void)
 {
-	char *theline = NULL;
-	size_t bfsz = 0;
+    char *input_line = NULL;
+    size_t buffer_size = 0;
 
-	if (my_own_getline(&theline, &bfsz, stdin) == -1)
-	{
-		if (theline != NULL && theline[0] == '\0')
-		{
-			exit(0);
-		}
-		else
-		{
-			exit(0);
-		}
-	}
+    if (my_own_getline(&input_line, &buffer_size, stdin) == -1)
+    {
+        if (input_line != NULL && input_line[0] == '\0')
+        {
+            exit(0);
+        }
+        else
+        {
+            exit(0);
+        }
+    }
 
-	return (theline);
+    return input_line;
 }
