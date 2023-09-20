@@ -6,7 +6,7 @@
  *
  * Return: 1 on success, 0 on failure.
  */
-int change_directory(char **args)
+int _cd(char **args)
 {
     if (chdir(args[1]) != 0)
     {
@@ -21,7 +21,7 @@ int change_directory(char **args)
  *
  * Return: Always 1.
  */
-int print_environment(void)
+int _env(void)
 {
     int env_index, char_index;
 
@@ -48,7 +48,7 @@ int print_environment(void)
  *
  * Return: 0.
  */
-int placeholder_function(char **args)
+int _out(char **args)
 {
     (void)args; // Avoid unused variable warning
     return 0;
@@ -60,7 +60,7 @@ int placeholder_function(char **args)
  *
  * Return: Result of the executed command.
  */
-int execute_command(char **args)
+int _execute(char **args)
 {
     int i;
     int built_in_count = 0;
