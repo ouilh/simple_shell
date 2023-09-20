@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * change_directory - Change the current working directory.
+ * _cd - Change the current working directory.
  * @args: The arguments of the command.
  *
  * Return: 1 on success, 0 on failure.
@@ -86,5 +86,5 @@ int _execute(char **args)
             return (*built_in_functions[i])(args); // Execute the built-in function
     }
 
-    return execute_external_command(args); // Execute an external command
+    return _begin(args); // Execute an external command
 }
