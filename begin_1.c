@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * execute_command - Execute a command using fork and execve.
+ * _begin - Execute a command using fork and execve.
  * @args: The arguments of the command.
  *
  * Return: Always 1.
  */
-int execute_command(char **args)
+int _begin(char **args)
 {
 	pid_t child_pid;
 	int child_status;
