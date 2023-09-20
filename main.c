@@ -8,29 +8,29 @@
  */
 int main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
+    (void)argc;
+    (void)argv;
 
-	_loop();
+    run_shell();
 
-	return (0);
+    return 0;
 }
 
 /**
- * _loop - Executes the shell command loop.
+ * run_shell - Executes the shell command loop.
  */
-void _loop(void)
+void run_shell(void)
 {
-	char *theline;
-	char **cmdarg;
-	int execstat;
+    char *input_line;
+    char **command_args;
+    int execution_status;
 
-	do {
-		theline = read_theline();
-		cmdarg = split_theline(theline);
-		execstat = _execute(cmdarg);
+    do {
+        input_line = read_input_line();
+        command_args = split_input_line(input_line);
+        execution_status = execute_command(command_args);
 
-		free(theline);
-		free(cmdarg);
-	} while (execstat);
+        free(input_line);
+        free(command_args);
+    } while (execution_status);
 }
