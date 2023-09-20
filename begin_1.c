@@ -1,45 +1,50 @@
 #include "shell.h"
 
 /**
- * _begin - Execute a command using fork and execve.
+ * execute_command - Execute a command using fork and execve.
  * @args: The arguments of the command.
  *
  * Return: Always 1.
  */
-int _begin(char **args)
+int execute_command(char **args)
 {
-	pid_t pid;
-	int stat;
-	char *cmd;
+	pid_t child_pid;
+	int child_status;
+	char *command_path;
 
-	pid = fork();
+	child_pid = fork();
 
-	if (pid == 0)
+	if (child_pid == 0)
 	{
+		// Determine the full path of the command
 		if (args[0][0] == '/')
-			cmd = args[0];
+			command_path = args[0];
 		else
-			cmd = get_thepath(args[0]);
+			command_path = find_command_path(args[0]);
 
-		if (cmd)
+		if (command_path)
 		{
-			execve(cmd, args, environ);
+			// Execute the command
+			execve(command_path, args, environ);
 			perror("execve");
 		}
 		else
+		{
 			perror("Command not found");
+		}
 
 		exit(1);
 	}
-	else if (pid < 0)
+	else if (child_pid < 0)
 	{
 		perror("fork");
 	}
 	else
 	{
+		// Wait for the child process to complete
 		do {
-			waitpid(pid, &stat, WUNTRACED);
-		} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
+			waitpid(child_pid, &child_status, WUNTRACED);
+		} while (!WIFEXITED(child_status) && !WIFSIGNALED(child_status));
 	}
-	return (1);
+	return 1;
 }
