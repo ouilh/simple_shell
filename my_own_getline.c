@@ -1,26 +1,26 @@
 #include "shell.h"
 
 /**
- * read_from_stream - Reads input from a stream into a buffer.
+ * read_input - Reads input from a stream into a buffer.
  * @buffer: Pointer to the buffer.
  * @stream: Pointer to the stream to read from.
  *
  * Return: Number of bytes read on success, -1 on failure.
  */
-ssize_t read_from_stream(char *buffer, FILE *stream)
+ssize_t read_input(char *buffer, FILE *stream)
 {
     return (read(fileno(stream), buffer, MAX_BUFFER_SIZE));
 }
 
 /**
- * find_first_newline - Finds the index of the first newline character in a buffer.
+ * find_newline - Finds the index of the first newline character in a buffer.
  * @buffer: Pointer to the buffer.
  * @start: Starting index to search from.
  * @end: Ending index to search until.
  *
  * Return: Index of the first newline character if found, -1 otherwise.
  */
-int find_first_newline(char *buffer, int start, int end)
+int find_newline(char *buffer, int start, int end)
 {
     int i;
 
@@ -35,13 +35,13 @@ int find_first_newline(char *buffer, int start, int end)
 }
 
 /**
- * copy_buffer_to_line - Copies a portion of a buffer into a line.
+ * copy_to_line - Copies a portion of a buffer into a line.
  * @buffer: Pointer to the buffer.
  * @start: Starting index of the portion to copy.
  * @end: Ending index of the portion to copy.
  * @line: Pointer to the line where the portion will be copied to.
  */
-void copy_buffer_to_line(char *buffer, int start, int end, char *line)
+void copy_to_line(char *buffer, int start, int end, char *line)
 {
     int line_length = end - start;
     int i;
@@ -73,14 +73,14 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
 
     if (buffer_index >= num_chars)
     {
-        num_chars = read_from_stream(buffer, stream);
+        num_chars = read_input(buffer, stream);
 
         if (num_chars <= 0)
             return (-1);
         buffer_index = 0;
     }
 
-    first_newline_index = find_first_newline(buffer, buffer_index, num_chars);
+    first_newline_index = find_newline(buffer, buffer_index, num_chars);
     line_length = first_newline_index - buffer_index;
 
     if (*n < line_length + 1)
@@ -98,7 +98,7 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
     }
     line = *lineptr;
 
-    copy_buffer_to_line(buffer, buffer_index, first_newline_index, line);
+    copy_to_line(buffer, buffer_index, first_newline_index, line);
     buffer_index = first_newline_index + 1;
     return (line_length);
 }
