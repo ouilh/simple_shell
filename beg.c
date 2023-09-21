@@ -9,21 +9,25 @@
 int _begin(char **args)
 {
 	pid_t pi;
-	int stat;
-	char *cmd;
+	int st;
+	char *c;
 
 	pi = fork();
 
-	if (pi == 0)
+	if (pi < 0)
+	{
+		perror("fork");
+	}
+	else if (pi == 0)
 	{
 		if (args[0][0] == '/')
-			cmd = args[0];
+			c = args[0];
 		else
-			cmd = get_thepath(args[0]);
+			c = get_thepath(args[0]);
 
-		if (cmd)
+		if (c)
 		{
-			execve(cmd, args, environ);
+			execve(c, args, environ);
 			perror("execve");
 		}
 		else
@@ -31,15 +35,11 @@ int _begin(char **args)
 
 		exit(1);
 	}
-	else if (pi < 0)
-	{
-		perror("fork");
-	}
 	else
 	{
 		do {
-			waitpid(pi, &stat, WUNTRACED);
-		} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
+			waitpid(pi, &st, WUNTRACED);
+		} while (!WIFEXITED(st) && !WIFSIGNALED(st));
 	}
 	return (1);
 }
