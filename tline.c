@@ -8,14 +8,14 @@
  */
 char **split_theline(char *theline)
 {
-	int i = 0;
-	const char *dlmtr;
+	int j = 0;
+	const char *dlm;
 	char **splits;
 	char *split;
 
-	dlmtr = " \n\t";
+	dlm = " \n\t";
 	splits = malloc(1024 * sizeof(char *));
-	split = _strtok(theline, dlmtr);
+	split = _strtok(theline, dlm);
 
 	if (!splits)
 	{
@@ -25,11 +25,11 @@ char **split_theline(char *theline)
 
 	while (split != NULL)
 	{
-		splits[i] = split;
-		split = _strtok(NULL, dlmtr);
-		i++;
+		splits[j] = split;
+		split = _strtok(NULL, dlm);
+		j++;
 	}
-	splits[i] = NULL;
+	splits[j] = NULL;
 
 	return (splits);
 }
@@ -42,9 +42,9 @@ char **split_theline(char *theline)
 char *read_theline(void)
 {
 	char *theline = NULL;
-	size_t bfsz = 0;
+	size_t bfs = 0;
 
-	if (my_own_getline(&theline, &bfsz, stdin) == -1)
+	if (my_own_getline(&theline, &bfs, stdin) == -1)
 	{
 		if (theline != NULL && theline[0] == '\0')
 		{
