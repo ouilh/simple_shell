@@ -40,7 +40,7 @@ int is_delimiter(char ch, const char *delim);
 
 /* String utility functions */
 int int _putchar(char character);
-int _strcmp(const char *str1, char *str2);
+int _strcmp(const char *string1, const char *string2)
 int _strlen(const char *str);
 char *_strcat(char *destr, char *sourstr);
 char *_strcpy(char *destr, char *sourstr);
