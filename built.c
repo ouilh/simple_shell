@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * _cd - Change the current working directory.
+ * _cd_ - Change the current working directory.
  * @args: The arguments of the command.
  *
  * Return: 1 on success, 0 on failure.
