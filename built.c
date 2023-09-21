@@ -78,7 +78,7 @@ int _ex(char **args)
 	{
 		return (1);
 	}
-  i=0;
+  i = 0;
   
   while (i < count)
   {
