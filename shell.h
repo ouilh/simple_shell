@@ -125,7 +125,7 @@ char *find_path(info_t *, char *, char *);
 /* loophsh.c */
 int loophsh(char **);
 
-/* toem_errors.c */
+/* toem_erro.c */
 void _eputs(char *);
 int _eputchar(char);
 int _putfd(char c, int fd);
@@ -166,7 +166,7 @@ int delim(char, char *);
 int alpha(int);
 int atoi(char *);
 
-/* toem_errors1.c */
+/* toem_erro1.c */
 int erratoi(char *);
 void print_error(info_t *, char *);
 int print_d(int, int);
@@ -182,7 +182,7 @@ int _help(info_t *);
 int _history(info_t *);
 int _malias(info_t *);
 
-/*toem_getline.c */
+/*toem_getl.c */
 ssize_t get_input(info_t *);
 int _getline(info_t *, char **, size_t *);
 void sigintHandler(int);
