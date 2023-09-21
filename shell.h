@@ -36,7 +36,7 @@ void copy_to_line(char *buffer, int start, int end, char *line);
 char *_strtok(char *thestring, const char *delim);
 char *find_next_delim(char *str, const char *delim);
 char *find_next_token(char *str, const char *delim);
-int is_delimiter(char ch, const char *delim);
+int is_del(char ch, const char *delim);
 
 /* String utility functions */
 int _pchar(char m);
