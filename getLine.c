@@ -142,9 +142,9 @@ int _getline(info_t *info, char **ptr, size_t *length)
 		return (p ? free(p), -1 : -1);
 
 	if (s)
-		_strcat(new_p, buf + i, k - i);
+		strcat(new_p, buf + i, k - i);
 	else
-		_strcpy(new_p, buf + i, k - i + 1);
+		strcpy(new_p, buf + i, k - i + 1);
 
 	s += k - i;
 	i = k;
