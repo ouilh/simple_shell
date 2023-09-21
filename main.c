@@ -32,7 +32,7 @@ void loop(void)
 	free(theline);
 	free(cmdarg);
 	
-	while (exe);
+	while (exe)
 	{
     		line = r_t();
 		cmdarg = s_t(line);
