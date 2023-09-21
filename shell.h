@@ -16,7 +16,7 @@ extern char **environ;
 char *_getenv(const char *envar);
 int _execute(char **args);
 int _beg(char **args);
-char *get_thepath(char *cmd);
+char *get_path(char *cmd);
 char **split_theline(char *theline);
 char *read_theline(void);
 void _loo(void);
