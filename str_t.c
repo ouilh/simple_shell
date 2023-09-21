@@ -9,7 +9,7 @@
  */
 int is_delimiter(char ch, const char *delim)
 {
-	size_t i
+	size_t i;
 	i = 0;
 
 	while (delim[i] != '\0')
