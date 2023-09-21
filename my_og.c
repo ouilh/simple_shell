@@ -49,7 +49,7 @@ void c_line(char *buffer, int start, int end, char *line)
 	while (i < line_length)
 	{
 		line[i] = buffer[start + i];
-    i++;
+    		i++;
 	}
 	line[line_length] = '\0';
 }
@@ -82,7 +82,7 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
 		buffer_index = 0;
 	}
 
-	newline_i= F_newline(buffer, buffer_index, num_chars);
+	newline_i = F_newline(buffer, buffer_index, num_chars);
 	line_length = newline_i - buffer_index;
 
 	if (*n < line_length + 1)
