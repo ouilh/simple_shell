@@ -10,8 +10,9 @@
 int is_del(char ch, const char *delim)
 {
 	size_t i;
+
 	i = 0;
-	
+
 	while (delim[i] != '\0')
 	{
 		if (ch == delim[i])
