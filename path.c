@@ -16,7 +16,7 @@ char *_genv(const char *envar)
 		srt = _strt(environ[j], "=");
 
 		if (_strc(envar, srt) == 0)
-			return (_strtok(NULL, "\n"));
+			return (_strt(NULL, "\n"));
 		j++;
 	}
 
@@ -53,7 +53,7 @@ char *get_tp(char *cmd)
 		if (stat(fcmd, &st) == 0)
 			return (fcmd);
 		free(fcmd);
-		split = _strtok(NULL, ":");
+		split = _strt(NULL, ":");
 	}
 	return (NULL);
 }
