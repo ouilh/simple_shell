@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * is_del - Checks if a character is a delimiter.
+ * is_delimiter - Checks if a character is a delimiter.
  * @ch: The character to check.
  * @delim: The string of delimiters.
  *
  * Return: 1 if the character is a delimiter, 0 otherwise.
  */
-int is_del(char ch, const char *delim)
+int is_delimiter(char ch, const char *delim)
 {
 	size_t i;
 
@@ -22,19 +22,19 @@ int is_del(char ch, const char *delim)
 }
 
 /**
- * find_next_t - Finds the next token in a string.
+ * find_next_token - Finds the next token in a string.
  * @str: The string to search.
  * @delim: The string of delimiters.
  *
  * Return: Pointer to the next token if found, NULL otherwise.
  */
-char *find_next_t(char *str, const char *delim)
+char *find_next_token(char *str, const char *delim)
 {
 	int is_delim = 0;
 
 	while (*str != '\0')
 	{
-		is_delim = is_del(*str, delim);
+		is_delim = is_delimiter(*str, delim);
 
 		if (!is_delim)
 		{
@@ -46,21 +46,21 @@ char *find_next_t(char *str, const char *delim)
 }
 
 /**
- * find_next_del - Finds the next delimiter in a string.
+ * find_next_delim - Finds the next delimiter in a string.
  * @str: The string to search.
  * @delim: The string of delimiters.
  *
  * Return: Pointer to the next delimiter if found, NULL otherwise.
  */
-char *find_next_del(char *str, const char *delim)
+char *find_next_delim(char *str, const char *delim)
 {
-	int is_d = 0;
+	int is_delim = 0;
 
 	while (*str != '\0')
 	{
-		is_d = is_del(*str, delim);
+		is_delim = is_delimiter(*str, delim);
 
-		if (is_d)
+		if (is_delim)
 		{
 			*str = '\0';
 			str++;
@@ -72,16 +72,16 @@ char *find_next_del(char *str, const char *delim)
 }
 
 /**
- * _strt - Breaks a string into a sequence of tokens.
+ * _strtok - Breaks a string into a sequence of tokens.
  * @thestring: The string to tokenize.
  * @delim: The string of delimiters.
  *
  * Return: Pointer to the next token if found, NULL otherwise.
  */
-char *_strt(char *thestring, const char *delim)
+char *_strtok(char *thestring, const char *delim)
 {
 	static char *strpos;
-	char *t = NULL;
+	char *token = NULL;
 
 	if (thestring != NULL)
 	{
@@ -93,8 +93,8 @@ char *_strt(char *thestring, const char *delim)
 		return (NULL);
 	}
 
-	t = find_next_t(strpos, delim);
-	strpos = find_next_d(t, delim);
+	token = find_next_token(strpos, delim);
+	strpos = find_next_delim(token, delim);
 
 	return (token);
 }
