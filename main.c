@@ -31,10 +31,10 @@ void loop(void)
 
 	free(theline);
 	free(cmdarg);
-	
+
 	while (exe)
 	{
-    		line = r_t();
+		line = r_t();
 		cmdarg = s_t(line);
 		exe = _ex(cmdarg);
 
