@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _begin - Execute a command using fork and execve.
+ * _beg - Execute a command using fork and execve.
  * @args: The arguments of the command.
  *
  * Return: Always 1.
  */
-int _begin(char **args)
+int _beg(char **args)
 {
 	pid_t pi;
 	int st;
