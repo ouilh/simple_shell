@@ -23,7 +23,7 @@ int _history(info_t *info)
 int u_alias(info_t *info, char *str)
 {
 	char *equal_sign, temp_char;
-  int ret;
+	int ret;
 
 	equal_sign = _strchr(str, '=');
 	if (!equal_sign)
@@ -31,7 +31,7 @@ int u_alias(info_t *info, char *str)
 	temp_char = *equal_sign;
 	*equal_sign = 0;
 
-  int index_to_delete = get_node_index(info->alias, node_starts_with(info->alias, str, -1));
+	int index_to_delete = get_node_index(info->alias, node_starts_with(info->alias, str, -1));
 	ret = delete_node_at_index(&(info->alias), index_to_delete);
 	*equal_sign = temp_char;
 	return (ret);
