@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * s_t - Split the input line into tokens.
+ * split_theline - Split the input line into tokens.
  * @theline: The input line.
  *
  * Return: An array of tokens.
  */
-char **s_t(char *theline)
+char **split_theline(char *theline)
 {
-	int j = 0;
+	int i = 0;
 	const char *dlmtr;
 	char **splits;
 	char *split;
@@ -25,21 +25,21 @@ char **s_t(char *theline)
 
 	while (split != NULL)
 	{
-		splits[j] = split;
+		splits[i] = split;
 		split = _strtok(NULL, dlmtr);
-		j++;
+		i++;
 	}
-	splits[j] = NULL;
+	splits[i] = NULL;
 
 	return (splits);
 }
 
 /**
- * r_t - Read a line of input from the user.
+ * read_theline - Read a line of input from the user.
  *
  * Return: The input line.
  */
-char *r_t(void)
+char *read_theline(void)
 {
 	char *theline = NULL;
 	size_t bfsz = 0;
