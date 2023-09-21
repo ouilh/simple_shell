@@ -78,13 +78,13 @@ int _ex(char **args)
 	{
 		return (1);
 	}
-  j = 0;
-
-  while (j < count)
-  {	
-	if (_strcmp(args[0], built_in_c[j]) == 0)
-		return ((*built_in_f[j])(args));
-	j++;
-  }
-  return (_begin(args));
+	j = 0;
+	
+	while (j < count)
+  	{	
+		if (_strcmp(args[0], built_in_c[j]) == 0)
+			return ((*built_in_f[j])(args));
+		j++;
+ 	 }
+ 	 return (_begin(args));
 }
