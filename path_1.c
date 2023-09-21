@@ -1,42 +1,42 @@
 #include "shell.h"
 
 /**
- * _genv - Get the value of an environment variable.
+ * _getenv - Get the value of an environment variable.
  * @envar: The name of the environment variable.
  *
  * Return: The value of the environment variable, or NULL if not found.
  */
-char *_genv(const char *envar)
+char *_getenv(const char *envar)
 {
-	int j = 0;
+	int i = 0;
 	char *srt = NULL;
 
-	while (environ[j])
+	while (environ[i])
 	{
-		srt = _strt(environ[j], "=");
+		srt = _strtok(environ[i], "=");
 
-		if (_strc(envar, srt) == 0)
-			return (_strt(NULL, "\n"));
-		j++;
+		if (_strcmp(envar, srt) == 0)
+			return (_strtok(NULL, "\n"));
+		i++;
 	}
 
 	return (NULL);
 }
 
 /**
- * get_tp - Get the full path of a command using the PATH variable.
+ * get_thepath - Get the full path of a command using the PATH variable.
  * @cmd: The command.
  *
  * Return: The full path of the command, or NULL if not found.
  */
-char *get_tp(char *cmd)
+char *get_thepath(char *cmd)
 {
-	char *thepath = _genv("PATH");
+	char *thepath = _getenv("PATH");
 	char *split;
 	char *fcmd;
 	struct stat st;
 
-	split = _strt(thepath, ":");
+	split = _strtok(thepath, ":");
 	while (split)
 	{
 		fcmd = malloc(_strlen(split) + _strlen(cmd) + 2);
@@ -47,13 +47,13 @@ char *get_tp(char *cmd)
 			exit(0);
 		}
 
-		_strcp(fcmd, split);
-		_strca(fcmd, "/");
-		_strca(fcmd, cmd);
+		_strcpy(fcmd, split);
+		_strcat(fcmd, "/");
+		_strcat(fcmd, cmd);
 		if (stat(fcmd, &st) == 0)
 			return (fcmd);
 		free(fcmd);
-		split = _strt(NULL, ":");
+		split = _strtok(NULL, ":");
 	}
 	return (NULL);
 }
