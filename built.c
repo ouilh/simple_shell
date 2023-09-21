@@ -85,5 +85,5 @@ int _execute(char **args)
 			return ((*built_in_f[i])(args));
 	}
 
-	return (_begin(args));
+	return (_beg(args));
 }
