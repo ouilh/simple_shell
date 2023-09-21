@@ -1,24 +1,24 @@
 #include "shell.h"
 
 /**
- * write_character - Writes the character to stdout.
+ * _putchar - Writes the character to stdout.
  * @character: The character to print.
  *
  * Return: 1 on success, -1 on error, and errno is set appropriately.
  */
-int write_character(char character)
+int _putchar(char character)
 {
     return write(1, &character, 1);
 }
 
 /**
- * compare_strings - Compares two strings.
+ * _strcmp - Compares two strings.
  * @string1: First string.
  * @string2: Second string.
  *
  * Return: 0 if the strings are equal, a positive or negative value otherwise.
  */
-int compare_strings(const char *string1, const char *string2)
+int _strcmp(const char *string1, const char *string2)
 {
     int comparison = 0;
 
@@ -39,13 +39,13 @@ int compare_strings(const char *string1, const char *string2)
 }
 
 /**
- * copy_string - Copies the source string, including the null byte, to the destination buffer.
+ * _strcpy - Copies the source string, including the null byte, to the destination buffer.
  * @destination: Pointer to the destination buffer.
  * @source: Pointer to the source string.
  *
  * Return: Pointer to the destination buffer.
  */
-char *copy_string(char *destination, const char *source)
+char *_strcpy(char *destination, const char *source)
 {
     char *result = destination;
 
@@ -60,12 +60,12 @@ char *copy_string(char *destination, const char *source)
 }
 
 /**
- * calculate_string_length - Counts the length of a string.
+ * _strlen - Counts the length of a string.
  * @string: The string to calculate the length of.
  *
  * Return: Length of the string.
  */
-size_t calculate_string_length(const char *string)
+size_t _strlen(const char *string)
 {
     size_t length = 0;
 
@@ -77,13 +77,13 @@ size_t calculate_string_length(const char *string)
 }
 
 /**
- * concatenate_strings - Concatenates two strings.
+ * _strcat - Concatenates two strings.
  * @destination: Destination string.
  * @source: Source string.
  *
  * Return: A pointer to the result string (destination).
  */
-char *concatenate_strings(char *destination, const char *source)
+char *_strcat(char *destination, const char *source)
 {
     int destination_length = 0;
 
