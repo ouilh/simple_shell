@@ -30,9 +30,9 @@ char *_getenv(const char *variable_name)
  *
  * Return: The full path of the command, or NULL if not found.
  */
-char *find_command_path(char *command_name)
+char *get_thepath(char *cmd)
 {
-    char *path_variable = get_environment_variable("PATH");
+    char *path_variable = _getenv("PATH");
     char *path_segment;
     char *full_command;
     struct stat file_stat;
