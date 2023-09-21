@@ -9,14 +9,16 @@
  */
 int is_delimiter(char ch, const char *delim)
 {
-	size_t i;
+	size_t i
+	i = 0;
 
-	for (i = 0; delim[i] != '\0'; i++)
+	while (delim[i] != '\0')
 	{
 		if (ch == delim[i])
 		{
 			return (1);
 		}
+		i++;
 	}
 	return (0);
 }
