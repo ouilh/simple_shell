@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _getenv - Get the value of an environment variable.
+ * _genv - Get the value of an environment variable.
  * @envar: The name of the environment variable.
  *
  * Return: The value of the environment variable, or NULL if not found.
  */
-char *_getenv(const char *envar)
+char *_genv(const char *envar)
 {
 	int j = 0;
 	char *sr = NULL;
@@ -31,7 +31,7 @@ char *_getenv(const char *envar)
  */
 char *get_path(char *cmd)
 {
-	char *thepath = _getenv("PATH");
+	char *thepath = _genv("PATH");
 	char *split;
 	char *ff;
 	struct stat st;
