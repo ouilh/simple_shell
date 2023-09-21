@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 /**
  * loo - Executes the shell command loop.
  */
-void loop(void)
+void loo(void)
 {
 	char *line;
 	char **cmdarg;
