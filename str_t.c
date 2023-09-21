@@ -32,13 +32,13 @@ int is_del(char ch, const char *delim)
  */
 char *find_next_token(char *str, const char *delim)
 {
-	int is_d = 0;
+	int is = 0;
 
 	while (*str != '\0')
 	{
-		is_d = is_del(*str, delim);
+		is = is_del(*str, delim);
 
-		if (!is_d)
+		if (!is)
 		{
 			return (str);
 		}
@@ -56,13 +56,13 @@ char *find_next_token(char *str, const char *delim)
  */
 char *find_next_delim(char *str, const char *delim)
 {
-	int is_delim = 0;
+	int is_d= 0;
 
 	while (*str != '\0')
 	{
-		is_delim = is_del(*str, delim);
+		is_d = is_del(*str, delim);
 
-		if (is_delim)
+		if (is_d)
 		{
 			*str = '\0';
 			str++;
@@ -82,21 +82,21 @@ char *find_next_delim(char *str, const char *delim)
  */
 char *_strtok(char *thestring, const char *delim)
 {
-	static char *strpos;
-	char *token = NULL;
+	static char *strp;
+	char *tok = NULL;
 
 	if (thestring != NULL)
 	{
-		strpos = thestring;
+		strp = thestring;
 	}
 
-	if (strpos == NULL || *strpos == '\0')
+	if (strp == NULL || *strp == '\0')
 	{
 		return (NULL);
 	}
 
-	token = find_next_token(strpos, delim);
-	strpos = find_next_delim(token, delim);
+	tok = find_next_token(strp, delim);
+	strp = find_next_delim(tok, delim);
 
-	return (token);
+	return (tok);
 }
