@@ -1,33 +1,29 @@
 #include "shell.h"
 
 /**
- * beg - Execute a command using fork and execve.
+ * _begin - Execute a command using fork and execve.
  * @args: The arguments of the command.
  *
  * Return: Always 1.
  */
-int beg(char **args)
+int _begin(char **args)
 {
-	pid_t pi;
+	pid_t pid;
 	int stat;
-	char *cm;
+	char *cmd;
 
-	pi = fork();
+	pid = fork();
 
-	if (pi < 0)
-	{
-		perror("fork");
-	}
-	else if (pi == 0)
+	if (pid == 0)
 	{
 		if (args[0][0] == '/')
 			cmd = args[0];
 		else
-			cm = get_thepath(args[0]);
+			cmd = get_thepath(args[0]);
 
-		if (cm)
+		if (cmd)
 		{
-			execve(cm, args, environ);
+			execve(cmd, args, environ);
 			perror("execve");
 		}
 		else
@@ -35,10 +31,14 @@ int beg(char **args)
 
 		exit(1);
 	}
+	else if (pid < 0)
+	{
+		perror("fork");
+	}
 	else
 	{
 		do {
-			waitpid(pi, &stat, WUNTRACED);
+			waitpid(pid, &stat, WUNTRACED);
 		} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
 	}
 	return (1);
