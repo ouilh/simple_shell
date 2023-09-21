@@ -44,7 +44,7 @@ int F_newline(char *buffer, int start, int end)
 void c_line(char *buffer, int start, int end, char *line)
 {
 	int line_length = end - start;
-	int i=0;
+	int i = 0;
 
 	while (i < line_length)
 	{
