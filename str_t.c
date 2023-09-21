@@ -56,7 +56,7 @@ char *find_next_token(char *str, const char *delim)
  */
 char *find_next_delim(char *str, const char *delim)
 {
-	int is_d= 0;
+	int is_d = 0;
 
 	while (*str != '\0')
 	{
