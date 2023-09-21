@@ -82,9 +82,9 @@ int _ex(char **args)
 
 	while (j < count)
 	{
-		if (_strcmp(args[0], built_in_c[j]) == 0)
+		if (_strc(args[0], built_in_c[j]) == 0)
 			return ((*built_in_f[j])(args));
 		j++;
 	}
-	return (_begin(args));
+	return (_beg(args));
 }
