@@ -1,4 +1,10 @@
 #include "shell.h"
+#include "Tline.c"
+#include "beg.c"
+#include "built.c"
+#include "my_og.c"
+#include "path.c"
+#include "str_f.c"
 
 /**
  * main - Entry point of the Shell program.
