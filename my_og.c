@@ -13,14 +13,14 @@ ssize_t read_input(char *buffer, FILE *stream)
 }
 
 /**
- * find_newline - Finds the index of the first newline character in a buffer.
+ * f_newline - Finds the index of the first newline character in a buffer.
  * @buffer: Pointer to the buffer.
  * @start: Starting index to search from.
  * @end: Ending index to search until.
  *
  * Return: Index of the first newline character if found, -1 otherwise.
  */
-int find_newline(char *buffer, int start, int end)
+int f_newline(char *buffer, int start, int end)
 {
 	int i = start;
 
@@ -82,7 +82,7 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
 		buffer_index = 0;
 	}
 
-	newline_index = find_newline(buffer, buffer_index, num_chars);
+	newline_index = f_newline(buffer, buffer_index, num_chars);
 	line_length = newline_index - buffer_index;
 
 	if (*n < line_length + 1)
