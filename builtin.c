@@ -10,7 +10,7 @@
 int mexit(info_t *info)
 {
 	int exit;
-  int numbers[4] = {1, -1, 2, -2};
+	int numbers[4] = {1, -1, 2, -2};
 
 	if (info->argv[numbers[0]]) /* If there is an exit arguement */
 	{
