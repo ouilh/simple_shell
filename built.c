@@ -22,21 +22,21 @@ int _cd(char **args)
  */
 int _env(void)
 {
-	int e, v;
+	int n, s;
 
-	e = 0;
-	while (environ[e])
+	n = 0;
+	while (environ[n])
 	{
-		v = 0;
-		while (environ[e][v])
+		s = 0;
+		while (environ[n][s])
 		{
-			_putchar(environ[e][v]);
-			v++;
+			_putchar(environ[n][s]);
+			s++;
 		}
 
-		if (v != 0)
+		if (s != 0)
 			_putchar('\n');
-		e++;
+		n++;
 	}
 	return (1);
 }
@@ -61,8 +61,8 @@ int _out(char **args)
  */
 int _execute(char **args)
 {
-	int i;
-	int count = 0;
+	int m;
+	int co = 0;
 
 	char *built_in_c[] = {
 		"cd",
@@ -72,17 +72,17 @@ int _execute(char **args)
 
 	int (*built_in_f[])() = {&_cd, &_env, &_out};
 
-	count = (sizeof(built_in_c) / sizeof(char *));
+	co = (sizeof(built_in_c) / sizeof(char *));
 
 	if (args[0] == NULL)
 	{
 		return (1);
 	}
 
-	for (i = 0; i < count; i++)
+	for (m = 0; m < co; m++)
 	{
-		if (_strcmp(args[0], built_in_c[i]) == 0)
-			return ((*built_in_f[i])(args));
+		if (_strcmp(args[0], built_in_c[m]) == 0)
+			return ((*built_in_f[m])(args));
 	}
 
 	return (_beg(args));
