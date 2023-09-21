@@ -8,11 +8,11 @@
  */
 int _cd(char **args)
 {
-    if (chdir(args[1]) != 0)
-    {
-        perror("error occurred");
-    }
-    return (1);
+        if (chdir(args[1]) != 0)
+        {
+                perror("error occurred");
+        }
+        return (1);
 }
 
 /**
@@ -22,23 +22,23 @@ int _cd(char **args)
  */
 int _env(void)
 {
-    int e, v;
+        int e, v;
 
-    e = 0;
-    while (environ[e])
-    {
-        v = 0;
-        while (environ[e][v])
+        e = 0;
+        while (environ[e])
         {
-            _putchar(environ[e][v]);
-            v++;
-        }
+                v = 0;
+                while (environ[e][v])
+                {
+                        _putchar(environ[e][v]);
+                        v++;
+                }
 
-        if (v != 0)
-            _putchar('\n');
-        e++;
-    }
-    return (1);
+                if (v != 0)
+                    _putchar('\n');
+                e++;
+        }
+        return (1);
 }
 
 /**
@@ -61,29 +61,29 @@ int _out(char **args)
  */
 int _execute(char **args)
 {
-    int i;
-    int count = 0;
+        int i;
+        int count = 0;
 
-    char *built_in_c[] = {
-        "cd",
-        "env",
-        "exit"
-    };
+        char *built_in_c[] = {
+                "cd",
+                "env",
+                "exit"
+        };
 
-    int (*built_in_f[])() = {&_cd, &_env, &_out};
+        int (*built_in_f[])() = {&_cd, &_env, &_out};
 
-    count = (sizeof(built_in_c) / sizeof(char *));
+        count = (sizeof(built_in_c) / sizeof(char *));
 
-    if (args[0] == NULL)
-    {
-        return (1);
-    }
+        if (args[0] == NULL)
+        {
+                return (1);
+        }
 
-    for (i = 0; i < count; i++)
-    {
-        if (_strcmp(args[0], built_in_c[i]) == 0)
-            return ((*built_in_f[i])(args));
-    }
+        for (i = 0; i < count; i++)
+        {
+                if (_strcmp(args[0], built_in_c[i]) == 0)
+                        return ((*built_in_f[i])(args));
+        }
 
-    return (_begin(args));
+        return (_begin(args));
 }
