@@ -1,84 +1,54 @@
-/* shell.c */
+#ifndef _SHELL_
+#define _SHELL_
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
 #include <sys/wait.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <unistd.h>
 
-#define MAX_ARGS 10
+extern char **environ;
 
-int main(void)
-{
-    char *input;
-    size_t len = 0;
-    pid_t child_pid;
-    int status;
+/* Functions prototypes */
+char *_getenv(const char *envar);
+int _execute(char **args);
+int _begin(char **args);
+char *get_thepath(char *cmd);
+char **split_theline(char *theline);
+char *read_theline(void);
+void _loop(void);
 
-    while (1)
-    {
-        printf("$ ");
-        getline(&input, &len, stdin);
+/* Constants */
+#define MAX_BUFFER_SIZE 1024
 
-        // Remove the newline character
-        input[strlen(input) - 1] = '\0';
+/* Custom getline function */
+ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream);
 
-        // Split the command and arguments
-        char *token = strtok(input, " ");
-        char *args[MAX_ARGS];
-        int arg_count = 0;
+/* Helper functions */
+ssize_t read_input(char *buffer, FILE *stream);
+int find_newline(char *buffer, int start, int end);
+void copy_to_line(char *buffer, int start, int end, char *line);
 
-        while (token != NULL && arg_count < MAX_ARGS - 1)
-        {
-            args[arg_count++] = token;
-            token = strtok(NULL, " ");
-        }
-        args[arg_count] = NULL;
+/* String manipulation functions */
+char *_strtok(char *thestring, const char *delim);
+char *find_next_delim(char *str, const char *delim);
+char *find_next_token(char *str, const char *delim);
+int is_delimiter(char ch, const char *delim);
 
-        // Check for the built-in commands
-        if (args[0] != NULL)
-        {
-            if (strcmp(args[0], "exit") == 0)
-            {
-                free(input);
-                exit(EXIT_SUCCESS);
-            }
-            else if (strcmp(args[0], "env") == 0)
-            {
-                // Print the current environment variables
-                char **env = environ;
-                while (*env)
-                {
-                    printf("%s\n", *env);
-                    env++;
-                }
-            }
-            else
-            {
-                // Fork and execute other commands
-                child_pid = fork();
-                if (child_pid == -1)
-                {
-                    perror("fork");
-                    exit(EXIT_FAILURE);
-                }
-                if (child_pid == 0)
-                {
-                    // Child process
-                    execve(args[0], args, NULL);
-                    perror("execve");
-                    exit(EXIT_FAILURE);
-                }
-                else
-                {
-                    // Parent process
-                    wait(&status);
-                }
-            }
-        }
-    }
+/* String utility functions */
+int _putchar(char m);
+int _strcmp(const char *str1, char *str2);
+int _strlen(const char *str);
+char *_strcat(char *destr, char *sourstr);
+char *_strcpy(char *destr, char *sourstr);
 
-    free(input);
-    return (0);
-}
+/* Built-in shell commands */
+int _cd(char **args);
+int _out(char **args);
+int _env(void);
+
+
+#endif
