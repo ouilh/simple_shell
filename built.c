@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * _cd_ - Change the current working directory.
+ * _cd - Change the current working directory.
  * @args: The arguments of the command.
  *
  * Return: 1 on success, 0 on failure.
  */
-int _cd_(char **args)
+int _cd(char **args)
 {
 	if (chdir(args[1]) != 0)
 	{
