@@ -13,13 +13,13 @@ int _pchar(char m)
 }
 
 /**
-  * _strcmp - a function to compare 2 strings
+  * _strc - a function to compare 2 strings
   * @str1: first string
   * @str2: second string
   *
   * Return: int
   */
-int _strcmp(const char *str1, char *str2)
+int _strc(const char *str1, char *str2)
 {
 	int c = 0;
 
