@@ -33,26 +33,26 @@ char *get_path(char *cmd)
 {
 	char *thepath = _getenv("PATH");
 	char *split;
-	char *fcmd;
+	char *ff;
 	struct stat st;
 
 	split = _strtok(thepath, ":");
 	while (split)
 	{
-		fcmd = malloc(_strlen(split) + _strlen(cmd) + 2);
+		ff = malloc(_strlen(split) + _strlen(cmd) + 2);
 
-		if (fcmd == NULL)
+		if (ff == NULL)
 		{
 			perror("..memory allocation error..");
 			exit(0);
 		}
 
-		_strcpy(fcmd, split);
-		_strcat(fcmd, "/");
-		_strcat(fcmd, cmd);
-		if (stat(fcmd, &st) == 0)
-			return (fcmd);
-		free(fcmd);
+		_strcpy(ff, split);
+		_strcat(ff, "/");
+		_strcat(ff, cmd);
+		if (stat(ff, &st) == 0)
+			return (ff);
+		free(ff);
 		split = _strtok(NULL, ":");
 	}
 	return (NULL);
