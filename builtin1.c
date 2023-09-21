@@ -22,18 +22,17 @@ int _history(info_t *info)
  */
 int u_alias(info_t *info, char *str)
 {
-	char *equal_sign, temp_char;
+	char *p, c;
 	int ret;
 
-	equal_sign = _strchr(str, '=');
-	if (!equal_sign)
+	p = _strchr(str, '=');
+	if (!p)
 		return (1);
-	temp_char = *equal_sign;
-	*equal_sign = 0;
-
-	int index_to_delete = get_node_index(info->alias, node_starts_with(info->alias, str, -1));
-	ret = delete_node_at_index(&(info->alias), index_to_delete);
-	*equal_sign = temp_char;
+	c = *p;
+	*p = 0;
+	ret = delete_node_at_index(&(info->alias),
+		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
+	*p = c;
 	return (ret);
 }
 
