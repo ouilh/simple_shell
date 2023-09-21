@@ -13,7 +13,7 @@ int _putc(char m)
 }
 
 /**
-  * _strc- a function to compare 2 strings
+  * _strc - a function to compare 2 strings
   * @str1: first string
   * @str2: second string
   *
@@ -37,7 +37,7 @@ int _strc(const char *str1, char *str2)
 	return (cm);
 }
 /**
-  *_strcpy - copies the string pointed
+  *_strcp - copies the string pointed
   *to by sourstr, including the terminating null byte
   *to the buffer pointed to by dest
   * @destr: points to buffer
@@ -75,7 +75,7 @@ int _strlen(const char *str)
 	return (leng);
 }
 /**
-  * _strcat - Concatenates two strings
+  * _strca - Concatenates two strings
   * @destr: destination string
   * @sourstr: source string
   *
