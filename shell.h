@@ -46,7 +46,7 @@ char *_strcat(char *destr, char *sourstr);
 char *_strcpy(char *destr, char *sourstr);
 
 /* Built-in shell commands */
-int _cd_(char **args);
+int _cd(char **args);
 int _out(char **args);
 int _env(void);
 
