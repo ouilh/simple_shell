@@ -16,7 +16,7 @@ int beg(char **args)
 
 	if (pi < 0)
 	{
-		perror("fork");		
+		perror("fork");
 	}
 	else if (pi == 0)
 	{
