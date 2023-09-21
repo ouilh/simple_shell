@@ -17,7 +17,7 @@ char *_getenv(const char *variable_name);
 int _execute(char **args);
 int _begin(char **args);
 char *get_thepath(char *cmd);
-char **split_theline(char *theline);
+char **split_theline(char *input_line)
 char *read_theline(void);
 void _loop(void);
 
@@ -34,9 +34,9 @@ void copy_to_line(char *buffer, int start, int end, char *line);
 
 /* String manipulation functions */
 char *_strtok(char *thestring, const char *delim);
-char *find_next_delim(char *str, const char *delim);
-char *find_next_token(char *str, const char *delim);
-int is_delimiter(char ch, const char *delim);
+char *find_next_delim(char *str, const char *delimiters)
+char *find_next_token(char *str, const char *delimiters)
+int is_delimiter(char character, const char *delimiters)
 
 /* String utility functions */
 int int _putchar(char character);
