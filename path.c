@@ -8,16 +8,16 @@
  */
 char *_getenv(const char *envar)
 {
-	int i = 0;
-	char *srt = NULL;
+	int j = 0;
+	char *sr = NULL;
 
-	while (environ[i])
+	while (environ[j])
 	{
-		srt = _strtok(environ[i], "=");
+		sr = _strtok(environ[j], "=");
 
-		if (_strcmp(envar, srt) == 0)
+		if (_strcmp(envar, sr) == 0)
 			return (_strtok(NULL, "\n"));
-		i++;
+		j++;
 	}
 
 	return (NULL);
