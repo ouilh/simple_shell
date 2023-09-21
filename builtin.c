@@ -17,7 +17,7 @@ int _cd(char **args)
 }
 
 /**
- * print_environment - Print the current environment variables.
+ * _env - Print the current environment variables.
  *
  * Return: Always 1.
  */
@@ -43,7 +43,7 @@ int _env(void)
 }
 
 /**
- * placeholder_function - Placeholder function.
+ * _out - Placeholder function.
  * @args: The arguments of the command.
  *
  * Return: 0.
@@ -55,7 +55,7 @@ int _out(char **args)
 }
 
 /**
- * execute_command - Execute a command.
+ * _execute - Execute a command.
  * @args: The arguments of the command.
  *
  * Return: Result of the executed command.
