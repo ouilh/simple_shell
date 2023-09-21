@@ -81,7 +81,7 @@ int _execute(char **args)
 
 	for (m = 0; m < co; m++)
 	{
-		if (_strcmp(args[0], built_in_c[m]) == 0)
+		if (_strc(args[0], built_in_c[m]) == 0)
 			return ((*built_in_f[m])(args));
 	}
 
