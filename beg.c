@@ -8,13 +8,13 @@
  */
 int _begin(char **args)
 {
-	pid_t pid;
+	pid_t pi;
 	int stat;
 	char *cmd;
 
-	pid = fork();
+	pi = fork();
 
-	if (pid == 0)
+	if (pi == 0)
 	{
 		if (args[0][0] == '/')
 			cmd = args[0];
@@ -31,14 +31,14 @@ int _begin(char **args)
 
 		exit(1);
 	}
-	else if (pid < 0)
+	else if (pi < 0)
 	{
 		perror("fork");
 	}
 	else
 	{
 		do {
-			waitpid(pid, &stat, WUNTRACED);
+			waitpid(pi, &stat, WUNTRACED);
 		} while (!WIFEXITED(stat) && !WIFSIGNALED(stat));
 	}
 	return (1);
