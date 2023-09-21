@@ -29,7 +29,7 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream);
 
 /* Helper functions */
 ssize_t read_input(char *buffer, FILE *stream);
-int find_newline(char *buffer, int start, int end);
+int f_newline(char *buffer, int start, int end);
 void copy_to_line(char *buffer, int start, int end, char *line);
 
 /* String manipulation functions */
