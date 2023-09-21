@@ -13,7 +13,7 @@
 extern char **environ;
 
 /* Functions prototypes */
-char *_getenv(const char *envar);
+char *_getenv(const char *variable_name);
 int _execute(char **args);
 int _begin(char **args);
 char *get_thepath(char *cmd);
