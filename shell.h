@@ -28,7 +28,7 @@ void _loo(void);
 ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream);
 
 /* Helper functions */
-ssize_t r_input(char *buffer, FILE *stream);
+ssize_t read_input(char *buffer, FILE *stream);
 int f_newline(char *buffer, int start, int end);
 void copy_to_line(char *buffer, int start, int end, char *line);
 
