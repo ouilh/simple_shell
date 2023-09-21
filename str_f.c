@@ -21,7 +21,7 @@ int _putchar(char m)
   */
 int _strcmp(const char *str1, char *str2)
 {
-	int cmp = 0;
+	int c = 0;
 
 	while (*str1 && *str2)
 	{
@@ -33,8 +33,8 @@ int _strcmp(const char *str1, char *str2)
 		else
 			break;
 	}
-	cmp = *str1 - *str2;
-	return (cmp);
+	c = *str1 - *str2;
+	return (c);
 }
 /**
   *_strcpy - copies the string pointed
@@ -47,7 +47,7 @@ int _strcmp(const char *str1, char *str2)
   */
 char *_strcpy(char *destr, char *sourstr)
 {
-	char *ret = destr;
+	char *r = destr;
 
 	while (*sourstr)
 	{
@@ -56,7 +56,7 @@ char *_strcpy(char *destr, char *sourstr)
 		sourstr++;
 	}
 	*destr = '\0';
-	return (ret);
+	return (r);
 }
 
 /**
@@ -67,12 +67,12 @@ char *_strcpy(char *destr, char *sourstr)
   */
 int _strlen(const char *str)
 {
-	int leng = 0;
+	int l = 0;
 
-	while (str[leng])
-		leng++;
+	while (str[l])
+		l++;
 
-	return (leng);
+	return (l);
 }
 /**
   * _strcat - Concatenates two strings
@@ -84,19 +84,19 @@ int _strlen(const char *str)
 
 char *_strcat(char *destr, char *sourstr)
 {
-	int destlen, i;
+	int des, j;
 
-	destlen = 0;
+	des = 0;
 
-	while (destr[destlen])
-		destlen++;
+	while (destr[des])
+		des++;
 
-	for (i = 0; sourstr[i] != '\0'; i++)
+	for (j = 0; sourstr[j] != '\0'; j++)
 	{
-		destr[destlen] = sourstr[i];
-		destlen++;
+		destr[des] = sourstr[j];
+		des++;
 	}
 
-	destr[destlen] = '\0';
+	destr[des] = '\0';
 	return (destr);
 }
