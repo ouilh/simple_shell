@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * r_input - Reads input from a stream into a buffer.
+ * read_input - Reads input from a stream into a buffer.
  * @buffer: Pointer to the buffer.
  * @stream: Pointer to the stream to read from.
  *
  * Return: Number of bytes read on success, -1 on failure.
  */
-ssize_t r_input(char *buffer, FILE *stream)
+ssize_t read_input(char *buffer, FILE *stream)
 {
 	return (read(fileno(stream), buffer, MAX_BUFFER_SIZE));
 }
