@@ -1,10 +1,4 @@
 #include "shell.h"
-#include "Tline.c"
-#include "beg.c"
-#include "built.c"
-#include "my_og.c"
-#include "path.c"
-#include "str_f.c"
 
 /**
  * main - Entry point of the Shell program.
@@ -17,34 +11,26 @@ int main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 
-	loo();
+	_loop();
 
 	return (0);
 }
 
 /**
- * loo - Executes the shell command loop.
+ * _loop - Executes the shell command loop.
  */
-void loo(void)
+void _loop(void)
 {
-	char *line;
+	char *theline;
 	char **cmdarg;
-	int exe;
+	int execstat;
 
-	line = r_t();
-	cmdarg = s_t(line);
-	exe = _ex(cmdarg);
-
-	free(theline);
-	free(cmdarg);
-
-	while (exe)
-	{
-		line = r_t();
-		cmdarg = s_t(line);
-		exe = _ex(cmdarg);
+	do {
+		theline = read_theline();
+		cmdarg = split_theline(theline);
+		execstat = _execute(cmdarg);
 
 		free(theline);
 		free(cmdarg);
-	}
+	} while (execstat);
 }
