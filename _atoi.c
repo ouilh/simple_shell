@@ -20,6 +20,7 @@ int inter_active(info_t *info)
 int delim(char c, char *delim)
 {
 	char *current = delim;
+
 	while (*current)
 		if (*current++ == c)
 			return (1);
