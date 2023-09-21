@@ -30,12 +30,12 @@ int _env(void)
 		s = 0;
 		while (environ[n][s])
 		{
-			_putchar(environ[n][s]);
+			_pchar(environ[n][s]);
 			s++;
 		}
 
 		if (s != 0)
-			_putchar('\n');
+			_pchar('\n');
 		n++;
 	}
 	return (1);
