@@ -32,7 +32,7 @@ int _begin(char **args)
 		else
 			execve(c, args, environ);
 			perror("execve");
-			
+
 		exit(1);
 	}
 	else
