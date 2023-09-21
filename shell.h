@@ -19,7 +19,7 @@ int _beg(char **args);
 char *get_thepath(char *cmd);
 char **split_theline(char *theline);
 char *read_theline(void);
-void _loop(void);
+void _loo(void);
 
 /* Constants */
 #define MAX_BUFFER_SIZE 1024
