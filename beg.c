@@ -25,13 +25,13 @@ int _begin(char **args)
 		else
 			c = get_thepath(args[0]);
 
-		if (!c)
+		if (c)
 		{
-			perror("Command not found");
-		}
-		else
 			execve(c, args, environ);
 			perror("execve");
+		}
+		else
+			perror("Command not found");
 
 		exit(1);
 	}
