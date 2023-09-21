@@ -45,11 +45,12 @@ int f_newline(char *buffer, int start, int end)
 void copy_to_line(char *buffer, int start, int end, char *line)
 {
 	int line_length = end - start;
-	int i;
+	int j = 0;
 
-	for (i = 0; i < line_length; i++)
+	while (j < line_length)
 	{
-		line[i] = buffer[start + i];
+		line[j] = buffer[start + j];
+		j++;
 	}
 	line[line_length] = '\0';
 }
@@ -68,7 +69,7 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
 	static char buffer[MAX_BUFFER_SIZE];
 	static int buffer_index;
 	static int num_chars;
-	int newline_index;
+	int new_index;
 	size_t line_length;
 	char *new_lineptr;
 	char *line;
@@ -82,8 +83,8 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
 		buffer_index = 0;
 	}
 
-	newline_index = f_newline(buffer, buffer_index, num_chars);
-	line_length = newline_index - buffer_index;
+	new_index = f_newline(buffer, buffer_index, num_chars);
+	line_length = new_index - buffer_index;
 
 	if (*n < line_length + 1)
 	{
@@ -100,7 +101,7 @@ ssize_t my_own_getline(char **lineptr, size_t *n, FILE *stream)
 	}
 	line = *lineptr;
 
-	copy_to_line(buffer, buffer_index, newline_index, line);
-	buffer_index = newline_index + 1;
+	copy_to_line(buffer, buffer_index, new_index, line);
+	buffer_index = new_index + 1;
 	return (line_length);
 }
