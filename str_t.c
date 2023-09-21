@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * is_delimiter - Checks if a character is a delimiter.
+ * is_del - Checks if a character is a delimiter.
  * @ch: The character to check.
  * @delim: The string of delimiters.
  *
  * Return: 1 if the character is a delimiter, 0 otherwise.
  */
-int is_delimiter(char ch, const char *delim)
+int is_del(char ch, const char *delim)
 {
 	size_t i;
 	i = 0;
@@ -32,13 +32,13 @@ int is_delimiter(char ch, const char *delim)
  */
 char *find_next_token(char *str, const char *delim)
 {
-	int is_delim = 0;
+	int is_d = 0;
 
 	while (*str != '\0')
 	{
-		is_delim = is_delimiter(*str, delim);
+		is_d = is_del(*str, delim);
 
-		if (!is_delim)
+		if (!is_d)
 		{
 			return (str);
 		}
@@ -60,7 +60,7 @@ char *find_next_delim(char *str, const char *delim)
 
 	while (*str != '\0')
 	{
-		is_delim = is_delimiter(*str, delim);
+		is_delim = is_del(*str, delim);
 
 		if (is_delim)
 		{
