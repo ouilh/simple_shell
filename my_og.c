@@ -49,7 +49,7 @@ void c_line(char *buffer, int start, int end, char *line)
 	while (i < line_length)
 	{
 		line[i] = buffer[start + i];
-    		i++;
+		i++;
 	}
 	line[line_length] = '\0';
 }
