@@ -15,7 +15,7 @@ char *_genv(const char *envar)
 	{
 		sr = _strtok(environ[j], "=");
 
-		if (_strcmp(envar, sr) == 0)
+		if (_strc(envar, sr) == 0)
 			return (_strtok(NULL, "\n"));
 		j++;
 	}
