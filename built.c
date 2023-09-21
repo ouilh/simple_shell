@@ -6,7 +6,7 @@
  *
  * Return: 1 on success, 0 on failure.
  */
-int _cd(char **args)
+int _cd_(char **args)
 {
 	if (chdir(args[1]) != 0)
 	{
