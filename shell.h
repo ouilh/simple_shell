@@ -41,9 +41,9 @@ int is_delimiter(char ch, const char *delim);
 /* String utility functions */
 int int _putchar(char character);
 int _strcmp(const char *string1, const char *string2)
-int _strlen(const char *str);
-char *_strcat(char *destr, char *sourstr);
-char *_strcpy(char *destr, char *sourstr);
+size_t _strlen(const char *string)
+char *_strcat(char *destination, const char *source)
+char *_strcpy(char *destination, const char *source)
 
 /* Built-in shell commands */
 int _cd(char **args);
