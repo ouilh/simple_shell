@@ -31,6 +31,7 @@ void loop(void)
 
 	free(theline);
 	free(cmdarg);
+	
 	while (exe);
 	{
     		line = r_t();
