@@ -22,14 +22,15 @@ ssize_t read_input(char *buffer, FILE *stream)
  */
 int find_newline(char *buffer, int start, int end)
 {
-	int i;
+	int i = start;
 
-	for (i = start; i < end; i++)
+	while (i < end)
 	{
 		if (buffer[i] == '\n')
 		{
 			return (i);
 		}
+		i++;
 	}
 	return (-1);
 }
