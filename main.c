@@ -11,15 +11,15 @@ int main(int argc, char **argv)
 	(void)argc;
 	(void)argv;
 
-	_loop();
+	_loo();
 
 	return (0);
 }
 
 /**
- * _loop - Executes the shell command loop.
+ * _loo - Executes the shell command loop.
  */
-void _loop(void)
+void _loo(void)
 {
 	char *theline;
 	char **cmdarg;
