@@ -1,27 +1,27 @@
 #include "shell.h"
 
 /**
- * _putc - writes the character m to stdout
+ * _putchar - writes the character m to stdout
  * @m: The character to print
  *
  * Return: 1 On success.
  * -1 On error and errno is set appropriately.
  */
-int _putc(char m)
+int _putchar(char m)
 {
 	return (write(1, &m, 1));
 }
 
 /**
-  * _strc - a function to compare 2 strings
+  * _strcmp - a function to compare 2 strings
   * @str1: first string
   * @str2: second string
   *
   * Return: int
   */
-int _strc(const char *str1, char *str2)
+int _strcmp(const char *str1, char *str2)
 {
-	int cm = 0;
+	int cmp = 0;
 
 	while (*str1 && *str2)
 	{
@@ -33,11 +33,11 @@ int _strc(const char *str1, char *str2)
 		else
 			break;
 	}
-	cm = *str1 - *str2;
-	return (cm);
+	cmp = *str1 - *str2;
+	return (cmp);
 }
 /**
-  *_strcp - copies the string pointed
+  *_strcpy - copies the string pointed
   *to by sourstr, including the terminating null byte
   *to the buffer pointed to by dest
   * @destr: points to buffer
@@ -45,7 +45,7 @@ int _strc(const char *str1, char *str2)
   *
   * Return: pointer
   */
-char *_strcp(char *destr, char *sourstr)
+char *_strcpy(char *destr, char *sourstr)
 {
 	char *ret = destr;
 
@@ -75,28 +75,28 @@ int _strlen(const char *str)
 	return (leng);
 }
 /**
-  * _strca - Concatenates two strings
+  * _strcat - Concatenates two strings
   * @destr: destination string
   * @sourstr: source string
   *
   * Return: A pointer to result string destr
   */
 
-char *_strca(char *destr, char *sourstr)
+char *_strcat(char *destr, char *sourstr)
 {
-	int dlen, i;
+	int destlen, i;
 
-	dlen = 0;
+	destlen = 0;
 
-	while (destr[dlen])
-		dlen++;
+	while (destr[destlen])
+		destlen++;
 
 	for (i = 0; sourstr[i] != '\0'; i++)
 	{
-		destr[dlen] = sourstr[i];
-		dlen++;
+		destr[destlen] = sourstr[i];
+		destlen++;
 	}
 
-	destr[dlen] = '\0';
+	destr[destlen] = '\0';
 	return (destr);
 }
