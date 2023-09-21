@@ -39,7 +39,7 @@ char *find_next_token(char *str, const char *delim);
 int is_delimiter(char ch, const char *delim);
 
 /* String utility functions */
-int _putchar(char m);
+int _pchar(char m);
 int _strcmp(const char *str1, char *str2);
 int _strlen(const char *str);
 char *_strcat(char *destr, char *sourstr);
