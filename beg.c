@@ -23,7 +23,7 @@ int _beg(char **args)
 		if (args[0][0] == '/')
 			c = args[0];
 		else
-			c = get_thepath(args[0]);
+			c = get_path(args[0]);
 
 		if (c)
 		{
