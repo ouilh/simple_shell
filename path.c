@@ -24,12 +24,12 @@ char *_getenv(const char *envar)
 }
 
 /**
- * get_thepath - Get the full path of a command using the PATH variable.
+ * get_path - Get the full path of a command using the PATH variable.
  * @cmd: The command.
  *
  * Return: The full path of the command, or NULL if not found.
  */
-char *get_thepath(char *cmd)
+char *get_path(char *cmd)
 {
 	char *thepath = _getenv("PATH");
 	char *split;
