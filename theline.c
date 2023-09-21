@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * split_input_line - Split the input line into tokens.
+ * split_theline - Split the input line into tokens.
  * @input_line: The input line.
  *
  * Return: An array of tokens.
  */
-char **split_input_line(char *input_line)
+char **split_theline(char *input_line)
 {
     int token_count = 0;
     const char *delimiters;
@@ -15,7 +15,7 @@ char **split_input_line(char *input_line)
 
     delimiters = " \n\t";
     tokens = malloc(1024 * sizeof(char *));
-    token = custom_strtok(input_line, delimiters);
+    token = _strtok(input_line, delimiters);
 
     if (!tokens)
     {
@@ -26,7 +26,7 @@ char **split_input_line(char *input_line)
     while (token != NULL)
     {
         tokens[token_count] = token;
-        token = custom_strtok(NULL, delimiters);
+        token = _strtok(NULL, delimiters);
         token_count++;
     }
     tokens[token_count] = NULL;
@@ -35,11 +35,11 @@ char **split_input_line(char *input_line)
 }
 
 /**
- * read_input_line - Read a line of input from the user.
+ * read_theline - Read a line of input from the user.
  *
  * Return: The input line.
  */
-char *read_input_line(void)
+char *read_theline(void)
 {
     char *input_line = NULL;
     size_t buffer_size = 0;
@@ -56,5 +56,5 @@ char *read_input_line(void)
         }
     }
 
-    return input_line;
+    return (input_line);
 }
