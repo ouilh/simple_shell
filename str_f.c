@@ -1,13 +1,13 @@
 #include "shell.h"
 
 /**
- * _putchar - writes the character m to stdout
+ * _pchar - writes the character m to stdout
  * @m: The character to print
  *
  * Return: 1 On success.
  * -1 On error and errno is set appropriately.
  */
-int _putchar(char m)
+int _pchar(char m)
 {
 	return (write(1, &m, 1));
 }
