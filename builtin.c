@@ -2,7 +2,7 @@
 
 /**
  * _myexit - exits the shell
- * @info: the Structure containing arguments. Used to maintain function prototype
+ * @info: the Structure containing arguments. Used to maintain function
  * constant function prototype.
  * Return: with a given exit status return exit
  * (0) if info.argv[0] != "exit"
