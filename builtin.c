@@ -30,7 +30,7 @@ int _myexit(info_t *info)
 }
 
 /**
- * _mycd -  this changes the current directory 
+ * _mycd -  this changes the current directory
  * @info: the struct containing potential arguments.for prototype
  * Return: Always 0
  */
