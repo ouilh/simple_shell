@@ -2,7 +2,7 @@
 
 /**
  * _myenv -  this  prints the current environ
- * @info: this struct containing potential arguments.to maintain constant function.
+ * @info: struct containing potential arguments.to maintain constant function.
  * Return: Always 0
  */
 int _myenv(info_t *info)
@@ -53,7 +53,7 @@ int _mysetenv(info_t *info)
 
 /**
  * _myunsetenv -  this remove an environment variable
- * @info: this struct containing potential arguments. Used  to maintain function.
+ * @info: struct containing potential arguments. Used  to maintain function.
  * Return: Always 0
  */
 int _myunsetenv(info_t *info)
