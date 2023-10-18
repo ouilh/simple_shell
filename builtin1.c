@@ -3,7 +3,7 @@
 /**
  * _myhistory - displays the history list, one command by line, preceded
  *              with line numbers, starting at 0.
- * @info:  this struct containing potential arguments.for  constant function prototype.
+ * @info:  this struct containing potential arguments.for  constant function.
  *  Return: 0 always
  */
 int _myhistory(info_t *info)
@@ -27,8 +27,8 @@ int unset_alias(info_t *info, char *str)
 	q = _strchr(str, '=');
 	if (!q)
 		return (1);
-	s= *q;
-	* q= 0;
+	s = *q;
+	*q = 0;
 	ret = delete_node_at_index(&(info->alias),
 		get_node_index(info->alias, node_starts_with(info->alias, str, -1)));
 	*q = s;
@@ -69,7 +69,7 @@ int print_alias(list_t *node)
 	if (node)
 	{
 		q = _strchr(node->str, '=');
-		for (b = node->str; b<= q; b++)
+		for (b = node->str; b <= q; b++)
 		_putchar(*b);
 		_putchar('\'');
 		_puts(q + 1);
